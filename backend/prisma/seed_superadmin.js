@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 async function main() {
     const superAdminEmail = 'mekdes.daba@healthnet.com';
 
-    const superAdminPassword = 'SuperPassword123!';
+    const superAdminPassword = process.env.SUPERADMIN_PASSWORD || 'SuperPassword123!';
     const hashedPassword = await bcrypt.hash(superAdminPassword, 10);
 
 
